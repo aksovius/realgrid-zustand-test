@@ -185,4 +185,6 @@ var masterData = [
   ],
 ];
 
-export { fields, columns, masterData };
+const layout = [...columns.map((column) => column.name)];
+const layout2 = [...columns.map((column) => column.name).reverse()];
+export { fields, columns, masterData, layout, layout2 };

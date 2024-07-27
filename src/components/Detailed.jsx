@@ -3,15 +3,16 @@ import { useStore } from "../store/useStore";
 
 const Detailed = () => {
   const gridRef = useRef();
-  const { init } = useStore((state) => ({
+  const { init, restore } = useStore((state) => ({
     init: state.initDetail,
+    restore: state.restoreDetail,
   }));
 
   useEffect(() => {
     if (!gridRef.current) return;
     init(gridRef);
     return () => {
-      gridRef.current = null;
+      restore();
     };
   }, []);
 
